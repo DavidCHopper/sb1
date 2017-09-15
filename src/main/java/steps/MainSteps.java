@@ -8,6 +8,7 @@ public class MainSteps extends BaseSteps {
 
     @Step("выбран пункт меню {0}")
     public void register(){
-        new MainPage(DriverManager.getInstance().getDriver()).register();
+        //new MainPage(DriverManager.getInstance().getDriver()).register();
+        new MainPage(getDriver()).register();
     }
 }

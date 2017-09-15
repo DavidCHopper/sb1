@@ -15,15 +15,20 @@ public class MainPage extends BasePage {
     WebElement registration;
 
     public MainPage(WebDriver driver){
+        System.out.println("45678");
         PageFactory.initElements(driver, this);
         this.driver = driver;
+
         Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
+        System.out.println("56789");
         WebElement closePopUp = wait.until(ExpectedConditions.elementToBeClickable(
                 driver.findElement(By.xpath(".//*[contains(@src, 'closePopImg')]"))));
+
         closePopUp.click();
         /*WebElement re = wait.until(ExpectedConditions.elementToBeClickable(
                 driver.findElement(By.xpath("//a[contains(text(),'зарегистрируйтесь')]"))));*/
         this.register();
+
     }
 
     public void register(){ //or use a parameter?
