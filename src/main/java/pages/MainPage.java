@@ -11,18 +11,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//a[contains(text(),'зарегистрируйтесь)]")
+    @FindBy(xpath = "//a[contains(text(),'зарегистрируйтесь')]")
     WebElement registration;
 
     public MainPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
         Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
-        wait.until(ExpectedConditions.elementToBeClickable(
-                driver.findElement(By.xpath("//map[@id = '13515_RURU_RU_W36_876x402jpg']/*"))));
+        WebElement closePopUp = wait.until(ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath(".//*[contains(@src, 'closePopImg')]"))));
+        closePopUp.click();
+        /*WebElement re = wait.until(ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath("//a[contains(text(),'зарегистрируйтесь')]"))));*/
+        this.register();
     }
 
-    public void registrate (){ //or use a parameter?
+    public void register(){ //or use a parameter?
         registration.click();
     }
 

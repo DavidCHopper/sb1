@@ -7,7 +7,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class MainSteps extends BaseSteps {
 
     @Step("выбран пункт меню {0}")
-    public void registrate(){
-        new MainPage(getDriver()).registrate();
+    public void register(){
+        new MainPage(DriverManager.getInstance().getDriver()).register();
     }
 }
